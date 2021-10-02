@@ -28,7 +28,7 @@ public class BaseballGame {
             // validate input
             validateInput.checkValidate(inputNumber);
             judgeInput = new JudgeInput(inputNumber, randomNumber);
-            System.out.println("judgeInput = " + judgeInput.checkHint());
+            judgeInput.checkHint();
         }
 
 

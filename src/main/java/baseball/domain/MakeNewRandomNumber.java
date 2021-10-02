@@ -9,7 +9,7 @@ public class MakeNewRandomNumber {
     String randomNumber;
     private ValidateInput validateInput;
 
-    // 1. 1 ~ 9로 이루어진 세자리 숫자를 nextstep.utils.Randoms의 pickNumberInRange를 이용하여 생성
+    // 1. 1 ~ 9로 이루어진 서로다른 세자리 숫자를 nextstep.utils.Randoms의 pickNumberInRange를 이용하여 생성
     public String returnRandomNumber() {
         randomNumber = new String();
         int tempNumber = 0;
