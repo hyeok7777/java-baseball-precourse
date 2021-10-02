@@ -2,12 +2,10 @@ package baseball.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
 public class JudgeInput {
     private List<Integer> playerNumber;
     private List<Integer> masterNumber;
-    private HintOutput hintOutput;
 
     public JudgeInput(String inputNumber, String createNumber) {
         playerNumber = makeStringToList(inputNumber);
@@ -17,31 +15,31 @@ public class JudgeInput {
     private List<Integer> makeStringToList(String number) {
         List<Integer> functionList = new ArrayList<>();
 
-        for(int i = 0 ; i < number.length() ; i++) {
+        for (int i = 0; i < number.length(); i++) {
             functionList.add(Character.getNumericValue(number.charAt(i)));
         }
         return functionList;
     }
 
-    public String checkHint() {
+    public int checkHint() {
 
-        ArrayList<HintOutput> hintOutputArrayList = new ArrayList<>();
         int strike = countStrike();
         int ball = countBall();
 
+        if (strike == 3) {
+            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 끝");
+        }
         if (strike > 0) {
-            hintOutput = new HintOutput("STRIKE", strike);
+            System.out.print(strike + "스트라이크 ");
         }
-        if(ball > 0) {
-            hintOutput = new HintOutput("BALL", ball);
+        if (ball > 0) {
+            System.out.println(ball + "볼");
         }
-        if(strike == 0 && ball == 0) {
-            hintOutput = new HintOutput("NOTHING", 0);
-            hintOutputArrayList.add(hintOutput);
+        if (strike == 0 && ball == 0) {
+            System.out.println("낫싱");
         }
-        System.out.println("strike = " + strike);
-        System.out.println("ball = " + ball);
-        return hintOutputArrayList.toString();
+
+        return strike;
     }
 
     private int countStrike() {
