@@ -1,26 +1,22 @@
 package baseball.service;
 
+import baseball.domain.NumberCreator;
 import baseball.domain.ValidateInput;
-import baseball.domain.MakeNewRandomNumber;
 import baseball.service.player.Player;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
 
 
 class BaseballGameTest {
     BaseballGame baseballGame = new BaseballGame();
-    MakeNewRandomNumber makeNewRandomNumber = new MakeNewRandomNumber();
+    NumberCreator numberCreator = new NumberCreator();
     Player player = new Player();
     ValidateInput validateInput = new ValidateInput();
 
     @DisplayName("3자리 숫자 생성")
     @Test
     public void createRandomNumber() {
-        //List<Integer> randomNumber = makeNewRandomNumber.createRandomNumber();
-        //Assertions.assertThat(randomNumber.size()).isEqualTo(3);
+        numberCreator.returnRandomNumber();
 
     }
 
