@@ -1,27 +1,41 @@
 package baseball.service;
 
-import baseball.service.computer.GameMaster;
+import baseball.domain.JudgeInput;
+import baseball.domain.ValidateInput;
+import baseball.domain.MakeNewRandomNumber;
 import baseball.service.player.Player;
-import nextstep.utils.Console;
 
-import java.util.List;
-
-public class BaseballGame{
-    private GameMaster gameMaster;
+public class BaseballGame {
+    private MakeNewRandomNumber makeNewRandomNumber;
     private Player player;
+    private ValidateInput validateInput;
+    private JudgeInput judgeInput;
 
-    public boolean runGame() {
-        // call game master
-        gameMaster = new GameMaster();
-        gameMaster.createRandomNumber();
-        // call player
-        player.getPlayerNumber();
-
-
-        return true;
+    public BaseballGame() {
+        makeNewRandomNumber = new MakeNewRandomNumber();
+        player = new Player();
+        validateInput = new ValidateInput();
     }
 
-    public void endGame(int consoleInput) {
+    public void runGame() {
+        System.out.println("START");
+        // call game master
+        makeNewRandomNumber = new MakeNewRandomNumber();
+        String randomNumber = makeNewRandomNumber.returnRandomNumber();
+        while (true) {
+            // call player
+            String inputNumber = player.getPlayerNumber();
+            // validate input
+            validateInput.checkValidate(inputNumber);
+            judgeInput = new JudgeInput(inputNumber, randomNumber);
+            System.out.println("judgeInput = " + judgeInput.checkHint());
+        }
+
+
+    }
+
+    public boolean endGame() {
         System.out.println("END");
+        return false;
     }
 }
