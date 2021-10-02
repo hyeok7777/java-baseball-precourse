@@ -9,5 +9,4 @@ public class ValidateInput {
             throw new IllegalArgumentException("[ERROR] 1 ~ 9 까지의 숫자만 입력 가능합니다.");
         }
     }
-
 }

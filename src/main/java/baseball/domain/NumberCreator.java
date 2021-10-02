@@ -26,7 +26,4 @@ public class NumberCreator {
             randomNumber += tempNumber;
         }
     }
-
-
-
 }
