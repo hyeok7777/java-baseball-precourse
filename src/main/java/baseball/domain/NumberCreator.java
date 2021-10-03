@@ -7,9 +7,7 @@ public class NumberCreator {
     private final int MAX_NUMBER = 9;
     private final int SIZE_NUMBER = 3;
     String randomNumber;
-    private ValidateInput validateInput;
 
-    // 1. 1 ~ 9로 이루어진 서로다른 세자리 숫자를 nextstep.utils.Randoms의 pickNumberInRange를 이용하여 생성
     public String returnRandomNumber() {
         randomNumber = new String();
         int tempNumber = 0;
@@ -17,7 +15,6 @@ public class NumberCreator {
             tempNumber = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
             checkAndAddNumber(randomNumber, tempNumber);
         }
-        System.out.println("randomNumber = " + randomNumber);
         return randomNumber;
     }
 

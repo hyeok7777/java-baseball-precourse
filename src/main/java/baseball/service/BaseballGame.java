@@ -2,9 +2,8 @@ package baseball.service;
 
 import baseball.domain.JudgeInput;
 import baseball.domain.NumberCreator;
-import baseball.service.player.Player;
 
-public class BaseballGame {
+public class BaseballGame implements Game{
     private NumberCreator numberCreator;
     private Player player;
     private JudgeInput judgeInput;
@@ -14,6 +13,7 @@ public class BaseballGame {
         player = new Player();
     }
 
+    @Override
     public void startGame() {
         numberCreator = new NumberCreator();
         String randomNumber = numberCreator.returnRandomNumber();
